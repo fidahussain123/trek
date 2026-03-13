@@ -1,0 +1,407 @@
+export interface Trek {
+  id: string
+  slug: string
+  name: string
+  tagline: string
+  region: 'kashmir' | 'ladakh'
+  difficulty: 'Easy' | 'Moderate' | 'Difficult' | 'Extreme'
+  duration: number
+  maxAltitude: number
+  distance: number
+  bestMonths: string[]
+  price: number
+  groupSize: { min: number; max: number }
+  startPoint: string
+  endPoint: string
+  highlights: string[]
+  itinerary: {
+    day: number
+    title: string
+    description: string
+    altitude: number
+    distance: number
+  }[]
+  inclusions: string[]
+  exclusions: string[]
+  thingsToCarry: string[]
+  images: {
+    hero: string
+    gallery: string[]
+    thumbnail: string
+  }
+  isPopular?: boolean
+  isFeatured?: boolean
+  rating: number
+  reviewCount: number
+  nextDeparture: string
+  tags: string[]
+}
+
+export const treks: Trek[] = [
+  {
+    id: 'grt-01',
+    slug: 'great-lakes-kashmir',
+    name: 'Kashmir Great Lakes',
+    tagline: 'Seven glacial lakes floating above the clouds',
+    region: 'kashmir',
+    difficulty: 'Moderate',
+    duration: 7,
+    maxAltitude: 4300,
+    distance: 70,
+    bestMonths: ['July', 'August', 'September'],
+    price: 12500,
+    groupSize: { min: 6, max: 20 },
+    startPoint: 'Sonamarg',
+    endPoint: 'Naranag',
+    highlights: [
+      'Seven pristine glacial lakes in one trek',
+      'Panoramic views of Kolahoi Glacier',
+      'Dense pine and fir forests',
+      'Vast Alpine meadows (margs)',
+      'Remote camping at 4000m+'
+    ],
+    itinerary: [
+      { day: 1, title: 'Srinagar → Sonamarg → Nichnai', description: 'Drive to Sonamarg (2800m) and trek to Nichnai camp through pine forests beside the Sind River.', altitude: 3500, distance: 10 },
+      { day: 2, title: 'Nichnai → Vishansar Lake', description: 'Cross Nichnai Pass (4100m) and descend to the emerald green Vishansar Lake — your first glacial lake.', altitude: 3710, distance: 13 },
+      { day: 3, title: 'Vishansar → Krishansar → Gadsar Pass', description: 'Cross twin lakes and summit Gadsar Pass (4200m) for 360° Himalayan panoramas.', altitude: 4200, distance: 14 },
+      { day: 4, title: 'Gadsar → Satsar Lakes', description: 'Descend to the cluster of seven Satsar lakes, each a different shade of blue and green.', altitude: 3800, distance: 10 },
+      { day: 5, title: 'Satsar → Gangabal Lake', description: 'Trek to the holy Gangabal twin lakes below Mount Harmukh (5142m).', altitude: 3576, distance: 14 },
+      { day: 6, title: 'Gangabal → Naranag', description: 'Final descent through ancient Naranag temple ruins and apple orchards.', altitude: 2200, distance: 13 },
+      { day: 7, title: 'Naranag → Srinagar', description: 'Drive back to Srinagar. Trek ends.', altitude: 1585, distance: 0 },
+    ],
+    inclusions: ['All meals on trek', 'Camping equipment', 'Experienced guides', 'Porters/horses for luggage', 'Forest permits', 'First Aid kit'],
+    exclusions: ['Transport to/from Srinagar', 'Personal trekking gear', 'Travel insurance', 'Tips'],
+    thingsToCarry: ['Warm layers (temp drops to -5°C at night)', 'Rain jacket', 'Trekking poles', 'Sunscreen SPF 50+', 'Personal medication'],
+    images: {
+      hero: 'https://images.unsplash.com/photo-1626621331169-5f34be280ed9?auto=format&fit=crop&w=1920&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1626621331169-5f34be280ed9?auto=format&fit=crop&w=600&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1626621331169-5f34be280ed9?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1605540436563-5bca919ae766?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1600298882525-15f4c70ba4d0?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80',
+      ],
+    },
+    isPopular: true,
+    isFeatured: true,
+    rating: 4.9,
+    reviewCount: 248,
+    nextDeparture: '2025-07-15',
+    tags: ['Lakes', 'Glaciers', 'Alpine Meadows', 'Wildlife'],
+  },
+  {
+    id: 'tar-02',
+    slug: 'tarsar-marsar',
+    name: 'Tarsar Marsar',
+    tagline: 'Two jewel lakes hidden in the Himalayas',
+    region: 'kashmir',
+    difficulty: 'Moderate',
+    duration: 6,
+    maxAltitude: 4100,
+    distance: 48,
+    bestMonths: ['June', 'July', 'August', 'September'],
+    price: 10500,
+    groupSize: { min: 6, max: 18 },
+    startPoint: 'Aru Valley',
+    endPoint: 'Aru Valley',
+    highlights: ['Mirror-like Tarsar and Marsar lakes', 'Flower-filled Lidderwat meadows', 'Dense deodar forests', 'Shepherd encounters', 'Night sky at high camp'],
+    itinerary: [
+      { day: 1, title: 'Pahalgam → Aru → Lidderwat', description: 'Drive to Aru and start trekking through apple orchards to Lidderwat.', altitude: 2950, distance: 12 },
+      { day: 2, title: 'Lidderwat → Shekwas', description: 'Trek along the Lidder River to Shekwas campsite.', altitude: 3660, distance: 8 },
+      { day: 3, title: 'Shekwas → Tarsar Lake', description: 'Ascend to the stunning Tarsar Lake — a deep blue jewel in a glacier bowl.', altitude: 3900, distance: 8 },
+      { day: 4, title: 'Tarsar → Marsar Lake', description: 'Cross over to the elder sister — Marsar Lake, ringed by peaks.', altitude: 4100, distance: 6 },
+      { day: 5, title: 'Marsar → Homwas', description: 'Trek back via alternate route through flower meadows.', altitude: 3200, distance: 10 },
+      { day: 6, title: 'Homwas → Aru → Pahalgam', description: 'Final descent and drive back.', altitude: 2440, distance: 8 },
+    ],
+    inclusions: ['All meals', 'Tents & sleeping bags', 'Guide & porter', 'Forest permits'],
+    exclusions: ['Travel to Pahalgam', 'Personal gear', 'Insurance'],
+    thingsToCarry: ['Waterproof jacket', 'Trekking boots', 'Warm layers', 'Sunglasses'],
+    images: {
+      hero: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1200&q=80',
+      ],
+    },
+    isPopular: true,
+    isFeatured: true,
+    rating: 4.8,
+    reviewCount: 182,
+    nextDeparture: '2025-06-20',
+    tags: ['Lakes', 'Meadows', 'Flowers', 'Beginner Friendly'],
+  },
+  {
+    id: 'col-03',
+    slug: 'kolahoi-glacier',
+    name: 'Kolahoi Glacier Trek',
+    tagline: 'The source of the Lidder — a glacier odyssey',
+    region: 'kashmir',
+    difficulty: 'Difficult',
+    duration: 5,
+    maxAltitude: 4700,
+    distance: 40,
+    bestMonths: ['June', 'July', 'August'],
+    price: 11000,
+    groupSize: { min: 4, max: 15 },
+    startPoint: 'Pahalgam',
+    endPoint: 'Pahalgam',
+    highlights: ['Kolahoi Glacier up close', 'Summit views of Kolahoi Peak (5425m)', 'Freezing glacial streams', 'Remote wilderness camping'],
+    itinerary: [
+      { day: 1, title: 'Pahalgam → Aru → Lidder Valley', description: 'Trek into the Lidder Valley past waterfalls and forest.', altitude: 2750, distance: 10 },
+      { day: 2, title: 'Lidder → Glacier Base', description: 'Ascend toward the snout of Kolahoi Glacier.', altitude: 3800, distance: 10 },
+      { day: 3, title: 'Glacier Exploration Day', description: 'Full day at the glacier — walk on ice, explore moraine.', altitude: 4700, distance: 8 },
+      { day: 4, title: 'Return to Aru', description: 'Trek back to Aru village.', altitude: 2500, distance: 8 },
+      { day: 5, title: 'Aru → Pahalgam', description: 'Final descent and departure.', altitude: 2440, distance: 4 },
+    ],
+    inclusions: ['All meals', 'Camping equipment', 'Expert glacier guide', 'Crampons', 'Ropes'],
+    exclusions: ['Personal gear', 'Transport', 'Insurance'],
+    thingsToCarry: ['Gaiters', 'Warm gloves', 'Snow goggles', 'Layered clothing'],
+    images: {
+      hero: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80',
+      ],
+    },
+    rating: 4.7,
+    reviewCount: 96,
+    nextDeparture: '2025-07-01',
+    tags: ['Glacier', 'Adventure', 'Ice', 'High Altitude'],
+  },
+  {
+    id: 'pin-04',
+    slug: 'pinnacle-peak-base-camp',
+    name: 'Pinnacle Peak Base Camp',
+    tagline: 'Stand at the feet of Kashmir\'s hidden giant',
+    region: 'kashmir',
+    difficulty: 'Difficult',
+    duration: 8,
+    maxAltitude: 5000,
+    distance: 65,
+    bestMonths: ['July', 'August'],
+    price: 18000,
+    groupSize: { min: 4, max: 12 },
+    startPoint: 'Srinagar',
+    endPoint: 'Srinagar',
+    highlights: ['Base camp of Pinnacle Peak (6040m)', 'High altitude passes above 5000m', 'Untouched remote valleys', 'Exceptional stargazing'],
+    itinerary: [
+      { day: 1, title: 'Srinagar → Sonamarg', description: 'Drive to Sonamarg and acclimatize.', altitude: 2800, distance: 0 },
+      { day: 2, title: 'Sonamarg → Camp 1', description: 'Begin ascent through moraines.', altitude: 3600, distance: 12 },
+      { day: 3, title: 'Camp 1 → Camp 2', description: 'Steep ascent to high ridge.', altitude: 4200, distance: 10 },
+      { day: 4, title: 'Rest & Acclimatization', description: 'Short acclimatization hike and rest.', altitude: 4200, distance: 4 },
+      { day: 5, title: 'Camp 2 → Base Camp', description: 'Final ascent to Pinnacle Base Camp.', altitude: 5000, distance: 8 },
+      { day: 6, title: 'Exploration Day at Base Camp', description: 'Explore glacier and surrounds.', altitude: 5000, distance: 5 },
+      { day: 7, title: 'Base Camp → Sonamarg', description: 'Full descent.', altitude: 2800, distance: 18 },
+      { day: 8, title: 'Sonamarg → Srinagar', description: 'Drive back to Srinagar.', altitude: 1585, distance: 0 },
+    ],
+    inclusions: ['All meals', 'Full expedition camping gear', 'Experienced high-altitude guides', 'First Aid & oxygen', 'Permits'],
+    exclusions: ['Personal mountaineering gear', 'Insurance', 'Flights'],
+    thingsToCarry: ['Down jacket', 'Altitude sickness medication', 'High-altitude boots', 'Sleeping bag rated -15°C'],
+    images: {
+      hero: 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=1920&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=600&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1445363692815-ebcd599f7621?auto=format&fit=crop&w=1200&q=80',
+      ],
+    },
+    isFeatured: true,
+    rating: 4.9,
+    reviewCount: 54,
+    nextDeparture: '2025-08-01',
+    tags: ['High Altitude', 'Base Camp', 'Expedition', 'Remote'],
+  },
+  {
+    id: 'mar-05',
+    slug: 'markha-valley',
+    name: 'Markha Valley Trek',
+    tagline: 'Ancient villages, monasteries and Kang Yatse views',
+    region: 'ladakh',
+    difficulty: 'Moderate',
+    duration: 8,
+    maxAltitude: 5150,
+    distance: 80,
+    bestMonths: ['June', 'July', 'August', 'September'],
+    price: 15000,
+    groupSize: { min: 6, max: 20 },
+    startPoint: 'Chiling',
+    endPoint: 'Hemis',
+    highlights: ['Kongmaru La Pass (5150m)', 'Markha village and ancient monastery', 'Views of Kang Yatse (6400m)', 'Traditional Ladakhi homestays', 'Snow leopard territory'],
+    itinerary: [
+      { day: 1, title: 'Leh → Chiling → Skiu', description: 'Drive to Chiling and start trek along the Zanskar river to Skiu.', altitude: 3400, distance: 10 },
+      { day: 2, title: 'Skiu → Markha Village', description: 'Trek through dramatic gorges and river crossings to Markha.', altitude: 3700, distance: 14 },
+      { day: 3, title: 'Markha → Tchatchutse', description: 'Trek past ruins of old forts and walls to Tchatchutse camp.', altitude: 4150, distance: 11 },
+      { day: 4, title: 'Tchatchutse → Nimaling', description: 'Climb steadily to the high plateau of Nimaling — base for Kang Yatse.', altitude: 4800, distance: 10 },
+      { day: 5, title: 'Rest at Nimaling', description: 'Rest day or optional ascent with guides.', altitude: 4800, distance: 6 },
+      { day: 6, title: 'Nimaling → Kongmaru La → Chogdo', description: 'Cross the highest pass — Kongmaru La (5150m) with 360° views.', altitude: 3800, distance: 14 },
+      { day: 7, title: 'Chogdo → Martselang → Hemis', description: 'Descend through painted cliffs to Hemis Monastery.', altitude: 3600, distance: 12 },
+      { day: 8, title: 'Hemis → Leh', description: 'Visit Hemis Monastery and drive back to Leh.', altitude: 3500, distance: 0 },
+    ],
+    inclusions: ['All meals', 'Camping + homestay nights', 'Guide, cook, horse support', 'Hemis National Park entry fee'],
+    exclusions: ['Leh to Leh transport', 'Personal gear', 'Insurance'],
+    thingsToCarry: ['Down jacket', 'Trekking poles', 'Altitude medication', 'Sunscreen SPF 60'],
+    images: {
+      hero: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1920&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1502239608882-93b729c6af43?auto=format&fit=crop&w=1200&q=80',
+      ],
+    },
+    isPopular: true,
+    isFeatured: true,
+    rating: 4.8,
+    reviewCount: 301,
+    nextDeparture: '2025-07-10',
+    tags: ['Culture', 'High Pass', 'Monastery', 'Wildlife', 'Classic'],
+  },
+  {
+    id: 'cha-06',
+    slug: 'chadar-trek',
+    name: 'Chadar Trek',
+    tagline: 'Walk on the frozen Zanskar River — a winter wonder',
+    region: 'ladakh',
+    difficulty: 'Extreme',
+    duration: 9,
+    maxAltitude: 3600,
+    distance: 105,
+    bestMonths: ['January', 'February'],
+    price: 28000,
+    groupSize: { min: 6, max: 16 },
+    startPoint: 'Chiling',
+    endPoint: 'Nerak',
+    highlights: ['Walk on a frozen river for 105km', 'Icy gorges and frozen waterfalls', 'Nerak village cut off from civilization', 'Sub-zero camping on the ice', 'India\'s most extreme winter trek'],
+    itinerary: [
+      { day: 1, title: 'Leh Arrival & Briefing', description: 'Acclimatize at Leh (3500m). Gear check and safety briefing.', altitude: 3500, distance: 0 },
+      { day: 2, title: 'Leh → Chiling', description: 'Drive to trek start. First steps on the frozen Zanskar.', altitude: 3200, distance: 8 },
+      { day: 3, title: 'Tibb Camp', description: 'Trek along the frozen Chadar — sheets of ice and frozen cascades.', altitude: 3250, distance: 12 },
+      { day: 4, title: 'Tibb → Tilat Sumdo', description: 'Navigate cracked ice sections and sleep in frozen caves.', altitude: 3300, distance: 14 },
+      { day: 5, title: 'Tilat Sumdo → Nerak', description: 'Reach Nerak, the famous frozen waterfall landmark.', altitude: 3400, distance: 14 },
+      { day: 6, title: 'Nerak Exploration & Return', description: 'Explore Nerak and begin return journey.', altitude: 3400, distance: 10 },
+      { day: 7, title: 'Return — Tilat Sumdo', description: 'March back along the Chadar.', altitude: 3300, distance: 14 },
+      { day: 8, title: 'Return — Tibb', description: 'Continue return to Tibb camp.', altitude: 3250, distance: 14 },
+      { day: 9, title: 'Tibb → Chiling → Leh', description: 'Final day on ice. Drive back to Leh.', altitude: 3500, distance: 8 },
+    ],
+    inclusions: ['All meals (special high-calorie winter diet)', 'Thermal sleeping bags (-30°C rated)', 'Insulated tents', 'Full expedition winter gear rental', 'Expert Ladakhi ice guides'],
+    exclusions: ['Personal clothing', 'Flights', 'Insurance'],
+    thingsToCarry: ['Extreme cold rated clothing (-20°C+)', 'Wool balaclava', 'Ice cleats', 'Thermos flask'],
+    images: {
+      hero: 'https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?auto=format&fit=crop&w=1920&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?auto=format&fit=crop&w=600&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?auto=format&fit=crop&w=1200&q=80',
+      ],
+    },
+    isPopular: true,
+    isFeatured: true,
+    rating: 5.0,
+    reviewCount: 178,
+    nextDeparture: '2026-01-20',
+    tags: ['Winter', 'Frozen River', 'Extreme', 'Bucket List', 'Unique'],
+  },
+  {
+    id: 'zan-07',
+    slug: 'zanskar-valley-traverse',
+    name: 'Zanskar Valley Traverse',
+    tagline: 'Cross the roof of the world on foot',
+    region: 'ladakh',
+    difficulty: 'Difficult',
+    duration: 12,
+    maxAltitude: 5340,
+    distance: 120,
+    bestMonths: ['July', 'August'],
+    price: 22000,
+    groupSize: { min: 6, max: 14 },
+    startPoint: 'Padum',
+    endPoint: 'Lamayuru',
+    highlights: ['Multiple 5000m+ passes', 'Ancient Zanskar monasteries', 'Nomadic Drokpa camps', 'Phuktal Monastery carved in cliff', 'Moon landscape terrain'],
+    itinerary: [
+      { day: 1, title: 'Padum Arrival', description: 'Drive to Padum (3500m), the heart of Zanskar.', altitude: 3500, distance: 0 },
+      { day: 2, title: 'Padum → Shade', description: 'Begin trek past ancient villages.', altitude: 3800, distance: 12 },
+      { day: 3, title: 'Shade → Reru', description: 'Trek through arid Zanskar terrain.', altitude: 4000, distance: 14 },
+      { day: 4, title: 'Reru → Hanumil', description: 'Cross first high pass.', altitude: 4400, distance: 12 },
+      { day: 5, title: 'Hanumil → Snertse', description: 'Trek through dramatic gorges.', altitude: 4600, distance: 10 },
+      { day: 6, title: 'Cross Sirsir La Pass (5340m)', description: 'Summit the highest pass of the trek.', altitude: 5340, distance: 12 },
+      { day: 7, title: 'Descent to Lingshed', description: 'Village homestay night.', altitude: 3900, distance: 10 },
+      { day: 8, title: 'Lingshed → Kiupa La', description: 'Ascend over another high ridge.', altitude: 4850, distance: 10 },
+      { day: 9, title: 'Descent to Nyirak', description: 'Long descent into dramatic canyon.', altitude: 3800, distance: 12 },
+      { day: 10, title: 'Nyirak → Photoksar', description: 'Pass ancient stupas and mani walls.', altitude: 4200, distance: 10 },
+      { day: 11, title: 'Photoksar → Wanla', description: 'Final passes and descent to Wanla.', altitude: 3200, distance: 14 },
+      { day: 12, title: 'Wanla → Lamayuru → Leh', description: 'Visit Lamayuru "Moonland" monastery. Drive to Leh.', altitude: 3500, distance: 0 },
+    ],
+    inclusions: ['All meals', 'Camping & homestays', 'Full support team', 'All permits (Inner Line)'],
+    exclusions: ['Flights', 'Personal gear', 'Insurance'],
+    thingsToCarry: ['Full altitude kit', 'Extra batteries (extreme cold)', 'Water purification tablets'],
+    images: {
+      hero: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1920&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=600&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1494564605686-2e931f77a8e2?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1200&q=80',
+      ],
+    },
+    isFeatured: true,
+    rating: 4.9,
+    reviewCount: 87,
+    nextDeparture: '2025-07-25',
+    tags: ['Traverse', 'Remote', 'Monasteries', 'Multi-Pass', 'Epic'],
+  },
+  {
+    id: 'sto-08',
+    slug: 'stok-kangri',
+    name: 'Stok Kangri',
+    tagline: 'Summit the highest trekking peak in Ladakh',
+    region: 'ladakh',
+    difficulty: 'Extreme',
+    duration: 7,
+    maxAltitude: 6153,
+    distance: 45,
+    bestMonths: ['July', 'August', 'September'],
+    price: 32000,
+    groupSize: { min: 4, max: 10 },
+    startPoint: 'Stok Village',
+    endPoint: 'Stok Village',
+    highlights: ['Summit at 6153m — highest non-technical summit in Ladakh', 'Views of Karakoram, Zanskar and Kangdese ranges', 'Glacier crossing', 'Professional summit guide', 'Certificate of summit'],
+    itinerary: [
+      { day: 1, title: 'Leh Acclimatization', description: 'Rest at Leh. Easy 3km walk to Shanti Stupa.', altitude: 3500, distance: 3 },
+      { day: 2, title: 'Leh → Stok Village', description: 'Drive to Stok and begin trek to basecamp.', altitude: 4200, distance: 8 },
+      { day: 3, title: 'Base Camp to Advanced Camp', description: 'Ascend to advanced base camp.', altitude: 5000, distance: 8 },
+      { day: 4, title: 'Acclimatization & Rest', description: 'High camp setup and acclimatization hike.', altitude: 5600, distance: 5 },
+      { day: 5, title: 'Summit Day — 3AM Start', description: 'Pre-dawn summit push across glacier and ridge to 6153m.', altitude: 6153, distance: 12 },
+      { day: 6, title: 'Descent to Base Camp', description: 'Full descent to base camp.', altitude: 4200, distance: 12 },
+      { day: 7, title: 'Base Camp → Stok → Leh', description: 'Descend to Stok village. Drive to Leh. Celebratory dinner.', altitude: 3500, distance: 0 },
+    ],
+    inclusions: ['All meals', 'Summit gear (crampons, ice axe, rope)', 'Certified mountaineering guides', 'Oxygen cylinder', 'Summit certificate', 'Permit'],
+    exclusions: ['Personal high-altitude gear', 'Flights', 'Insurance (mandatory)'],
+    thingsToCarry: ['High-altitude mountaineering boots', 'Down suit', 'Glacier glasses', 'Headlamp with extra batteries'],
+    images: {
+      hero: 'https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?auto=format&fit=crop&w=1920&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?auto=format&fit=crop&w=600&q=80',
+      gallery: [
+        'https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80',
+      ],
+    },
+    isPopular: true,
+    rating: 4.9,
+    reviewCount: 134,
+    nextDeparture: '2025-08-10',
+    tags: ['Summit', '6000m+', 'Mountaineering', 'Extreme', 'Bucket List'],
+  },
+]
+
+export const getFeaturedTreks = () => treks.filter(t => t.isFeatured)
+export const getPopularTreks = () => treks.filter(t => t.isPopular)
+export const getTreksByRegion = (region: 'kashmir' | 'ladakh') => treks.filter(t => t.region === region)
+export const getTrekBySlug = (slug: string) => treks.find(t => t.slug === slug)
